@@ -109,7 +109,7 @@ Portal Norte -> Calle 100 -> Calle 72 -> Calle 26 -> Av Jimenez -> Portal Sur
 Costo total: 33
 ```
 
-## Decisiones de diseno
+## Decisiones de diseño
 
 - Separacion por capas:
   - Datos (hechos)
@@ -118,14 +118,6 @@ Costo total: 33
   - Busqueda (motor de decision)
   - Interfaz por consola (main)
 - Facilita mantenimiento, pruebas y extensiones.
-
-## Posibles mejoras
-
-- Agregar mas estaciones y conexiones reales.
-- Incluir horarios y frecuencia de buses.
-- Diferenciar tipos de penalizacion por horario.
-- Crear interfaz grafica o API web.
-- Agregar pruebas unitarias por modulo.
 
 ## Contexto academico
 
