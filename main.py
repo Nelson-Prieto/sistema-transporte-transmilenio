@@ -3,9 +3,7 @@ from conocimiento import BaseConocimiento
 from reglas import Reglas
 from busqueda import BusquedaAEstrella
 
-"""
-Permite al usuario seleccionar una estación válida desde consola
-"""
+# Permite al usuario seleccionar una estación válida desde consola
 def seleccionar_estacion(estaciones, mensaje):    
     while True:
         print("\nEstaciones disponibles:")

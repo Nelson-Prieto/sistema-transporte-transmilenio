@@ -8,21 +8,17 @@ class BusquedaAEstrella:
         self.conocimiento = conocimiento
         self.reglas = reglas
 
-    """
-    Estimación de distancia entre estaciones.
-    Se una la distancia Manhattan (simple y rápida).
-    """
+    # Estimación de distancia entre estaciones.
+    #Se una la distancia Manhattan (simple y rápida).    
     def heuristica(self, actual, destino):
         x1, y1 = self.conocimiento.obtener_coord(actual)
         x2, y2 = self.conocimiento.obtener_coord(destino)
         return abs(x1 - x2) + abs(y1 - y2)
 
-    """
-    Implementación del algoritmo A*.        
-    Retorna:
-    - ruta encontrada
-    - costo total
-    """
+    # Implementación del algoritmo A*.        
+    # Retorna:
+    # - ruta encontrada
+    # - costo total
     def buscar(self, inicio, objetivo):
         # Cola de prioridad (min-heap)
         frontera = []
@@ -59,9 +55,7 @@ class BusquedaAEstrella:
 
         return self.reconstruir_ruta(vino_de, inicio, objetivo), costo.get(objetivo, None)
 
-    """
-    Reconstruye el camino desde el destino al inicio
-    """
+    # Reconstruye el camino desde el destino al inicio
     def reconstruir_ruta(self, vino_de, inicio, objetivo):
         if objetivo not in vino_de:
             return None

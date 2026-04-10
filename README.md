@@ -132,3 +132,50 @@ Costo total: 33
 Actividad 2: Busqueda y sistemas basados en reglas.
 
 Este proyecto demuestra como combinar metodos de IA simbolica (reglas) con busqueda heuristica (A*).
+
+---
+
+## Actividad 3: Metodos de aprendizaje supervisado
+
+Como complemento de la Actividad 2, se agrega un flujo simple de aprendizaje supervisado para estimar `tiempo_real_min` en un tramo del sistema.
+
+### Fuentes de datos identificadas
+
+1. Datos operacionales por tramo (tiempos reales por franja horaria).
+2. Datos de demanda por estacion y hora.
+3. Datos de incidentes operacionales (bloqueos, accidentes, cierres).
+4. Datos de clima (lluvia e intensidad por hora/zona).
+
+Detalle en: `actividad3/fuentes_datos.md`
+
+### Dataset de muestra incluido
+
+Cuando no se cuenta con todas las fuentes reales integradas, se usa un dataset sintetico:
+
+- Ruta: `actividad3/datos/viajes_transmilenio_muestra.csv`
+- Generador: `actividad3/generar_dataset_muestra.py`
+- Target supervisado: `tiempo_real_min`
+
+### Modelo supervisado implementado
+
+- Tipo: Regresion lineal (entrenada con descenso de gradiente, sin librerias externas).
+- Script: `actividad3/entrenar_modelo_supervisado.py`
+- Modelo guardado: `actividad3/modelos/modelo_regresion_lineal.json`
+- Script de inferencia: `actividad3/predecir_tiempo.py`
+
+### Comandos de ejecucion (Actividad 3)
+
+Desde la raiz del proyecto:
+
+```bash
+python actividad3/generar_dataset_muestra.py
+python actividad3/entrenar_modelo_supervisado.py
+python actividad3/predecir_tiempo.py
+```
+
+### Campos del dataset de muestra
+
+- `fecha`, `hora`, `origen`, `destino`
+- `tiempo_base_min`, `transbordo`, `distancia_manhattan`
+- `clima`, `nivel_congestion`, `incidente`, `demanda_estimada`, `es_hora_pico`
+- `tiempo_real_min` (variable objetivo)

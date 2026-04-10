@@ -3,10 +3,8 @@
 
 class BaseConocimiento:
 
-    """
-    estaciones: diccionario con info de cada estación
-    conexiones: lista de conexiones entre estaciones
-    """
+    # estaciones: diccionario con info de cada estación
+    # conexiones: lista de conexiones entre estaciones
     def __init__(self, estaciones, conexiones):
         self.estaciones = estaciones
         self.grafo = {}
@@ -20,14 +18,14 @@ class BaseConocimiento:
             self.grafo[origen].append((destino, tiempo))
             self.grafo[destino].append((origen, tiempo))
 
-    """Devuelve las estaciones conectadas a la estación actual"""
+    # Devuelve las estaciones conectadas a la estación actual"""
     def obtener_vecinos(self, estacion):
         return self.grafo.get(estacion, [])
 
-    """Devuelve la línea a la que pertenece una estación"""
+    # Devuelve la línea a la que pertenece una estación"""
     def obtener_linea(self, estacion):
         return self.estaciones[estacion]["linea"]
 
-    """Devuelve coordenadas (x, y) de la estación"""
+    # Devuelve coordenadas (x, y) de la estación"""
     def obtener_coord(self, estacion):
         return self.estaciones[estacion]["coord"]
