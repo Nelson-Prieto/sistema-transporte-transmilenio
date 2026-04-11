@@ -171,3 +171,43 @@ python actividad3/predecir_tiempo.py
 - `tiempo_base_min`, `transbordo`, `distancia_manhattan`
 - `clima`, `nivel_congestion`, `incidente`, `demanda_estimada`, `es_hora_pico`
 - `tiempo_real_min` (variable objetivo)
+
+---
+
+## Actividad 4: Metodos de aprendizaje no supervisado
+
+Como complemento de las actividades anteriores, se agrega un flujo de clustering para descubrir patrones operativos sin variable objetivo.
+
+### Fuentes de datos identificadas
+
+1. Telemetria operativa por franja horaria (demanda, tiempos, ocupacion).
+2. Eventos operacionales (incidentes, bloqueos, cierres).
+3. Condiciones externas (clima por hora/zona).
+4. Variables de red (distancia entre estaciones y transbordo).
+
+Detalle en: `actividad4/fuentes_datos.md`
+
+### Dataset de muestra incluido
+
+Cuando no se cuenta con todas las fuentes reales integradas, se usa un dataset sintetico no supervisado:
+
+- Ruta: `actividad4/datos/operacion_transmilenio_muestra.csv`
+- Generador: `actividad4/generar_dataset_muestra.py`
+- Variables clave: hora, congestion, incidentes, demanda, ocupacion, clima, distancia y transbordo.
+
+### Modelo no supervisado implementado
+
+- Tipo: K-Means (implementado en Python sin librerias externas).
+- Script: `actividad4/entrenar_modelo_no_supervisado.py`
+- Modelo guardado: `actividad4/modelos/modelo_kmeans.json`
+- Script de asignacion de nuevos escenarios: `actividad4/asignar_cluster.py`
+
+### Comandos de ejecucion (Actividad 4)
+
+Desde la raiz del proyecto:
+
+```bash
+python actividad4/generar_dataset_muestra.py
+python actividad4/entrenar_modelo_no_supervisado.py
+python actividad4/asignar_cluster.py
+```
